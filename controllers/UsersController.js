@@ -222,14 +222,6 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
     const refreshToken = req.cookies.refreshToken
-    // const csrfTokenFromClient = req.headers['xsrf-token']
-    // const csrfTokenFromCookie = req.cookies['XSRF-TOKEN']
-    // const arrayCSRFToken = [csrfTokenFromCookie, '4c7936f-b388-4909-b26c-d07dbafdc7a7']
-    
-    // console.log(csrfTokenFromClient)
-    // console.log(csrfTokenFromCookie)
-    // console.log(arrayCSRFToken)
-
     if(!refreshToken) {
         res.status(200).send({
             status: false,
