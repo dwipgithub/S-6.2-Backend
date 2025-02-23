@@ -1,4 +1,5 @@
 import express from "express"
+import  session from 'express-session'
 import {} from 'dotenv/config'
 import { databaseRSOnline } from "./config/Database.js"
 import router from "./routes/index.js"
@@ -13,6 +14,13 @@ try {
 } catch (error) {
     console.log(error)
 }
+
+app.use(session({
+    secret: 'c7936f-b388-4909-b26c-d07dbafdc7a7', 
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }  // Ubah ke true jika menggunakan HTTPS
+}));
 
 app.use(cors( {credentials: true, origin: [process.env.ORIGIN]}))
 

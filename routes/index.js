@@ -3,6 +3,7 @@ import express from 'express'
 // Token
 import { getDataUser, insertDataUser, login, logout, changePassword, loginadmin, logoutadmin } from '../controllers/UsersController.js'
 import { verifyToken } from '../middleware/VerifyToken.js'
+import { verifyCsrfToken } from '../middleware/VerifyCsrfToken.js'
 import { refreshToken } from '../controllers/RefreshToken.js'
 
 // References
@@ -151,15 +152,15 @@ router.get('/apisirs/rumahsakit', verifyToken, getDataRumahSakitFilterbyKabKotaI
 // User
 router.get('/apisirs/users', verifyToken, getDataUser)
 router.post('/apisirs/users', verifyToken, insertDataUser)
-router.patch('/apisirs/users/:id/admin', verifyToken, changePassword)
+router.patch('/apisirs/users/:id/admin', verifyCsrfToken, verifyToken, changePassword)
 
 // Kriteria User
 router.get('/apisirs/kriteriauser', verifyToken, getKriteriaUser)
 
 // Token
 router.post('/apisirs/login', login)
-router.delete('/apisirs/logout', logout)
-router.get('/apisirs/token', refreshToken)
+router.post('/apisirs/logout', verifyCsrfToken, logout)
+router.get('/apisirs/token', verifyCsrfToken, refreshToken)
 
 // Jenis Pelayanan
 router.get('/apisirs/jenispelayanan', verifyToken,

@@ -1,5 +1,5 @@
 import { users, insertData } from '../models/UserModel.js'
-import axios from 'axios'
+import crypto from 'crypto'
 import bcrypt from 'bcrypt'
 import jsonWebToken from 'jsonwebtoken'
 import Joi from 'joi'
@@ -98,15 +98,25 @@ export const login = async (req, res) => {
                 .then(() => {
                     res.cookie('refreshToken', refreshToken, {
                         httpOnly: true,
+                        sameSite: 'Strict',
                         // maxAge: 24 * 60 * 60 * 1000
                         maxAge: 1000 * 60 * 60 * 24
                     })
+
+                    const csrfToken = crypto.randomUUID()
+
+                    res.cookie('XSRF-TOKEN', csrfToken, {
+                        httpOnly: true,
+                        sameSite: 'Strict', // atau 'Lax' tergantung kebutuhan
+                    });
+
                     res.status(201).send({
                         status: true,
                         message: "access token created",
                         data: {
                             name: results[0].nama,
-                            access_token: accessToken
+                            access_token: accessToken,
+                            csrfToken: csrfToken
                         }
                     })
                 })
@@ -212,13 +222,22 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
     const refreshToken = req.cookies.refreshToken
+    // const csrfTokenFromClient = req.headers['xsrf-token']
+    // const csrfTokenFromCookie = req.cookies['XSRF-TOKEN']
+    // const arrayCSRFToken = [csrfTokenFromCookie, '4c7936f-b388-4909-b26c-d07dbafdc7a7']
+    
+    // console.log(csrfTokenFromClient)
+    // console.log(csrfTokenFromCookie)
+    // console.log(arrayCSRFToken)
+
     if(!refreshToken) {
-        res.status(204).send({
+        res.status(200).send({
             status: false,
-            message: 'No'
+            message: 'Unauthorized'
         })
         return
     }
+
     users.findAll({
         where: {
             refresh_token: refreshToken
@@ -232,7 +251,12 @@ export const logout = (req, res) => {
         })
         .then((resultsUpdate) => {
             res.clearCookie('refreshToken')
-            res.sendStatus(200)
+            res.clearCookie('XSRF-TOKEN')
+            res.clearCookie('connect.sid')
+            res.status(200).send({
+                status: true,
+                message: resultsUpdate
+            })
         })
     })
     .catch((err) => {
