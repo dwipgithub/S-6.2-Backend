@@ -209,73 +209,74 @@ router.get(
 router.get('/apisirs/jenisgolongansebabpenyakit', verifyToken, getDataJenisGolonganSebabPenyakit)
 
 // RL 1.2
-router.post('/apisirs/rlsatutitikdua', verifyToken, insertDataRLSatuTitikDua)
+router.post('/apisirs/rlsatutitikdua', verifyCsrfToken, verifyToken, insertDataRLSatuTitikDua)
 router.get('/apisirs/rlsatutitikdua', verifyToken, getDatarlSatuTitikDua)
 router.get('/apisirs/rlsatutitikduadetail/:id',verifyToken,getrlSatuTitikDuaById )
-router.delete("/apisirs/rlsatutitikdua/:id", verifyToken, deleteDataRLSatuTitikDua)
-router.patch('/apisirs/rlsatutitikdua/:id', verifyToken, updateDatarlSatuTitikDua)
+router.delete("/apisirs/rlsatutitikdua/:id", verifyCsrfToken, verifyToken, deleteDataRLSatuTitikDua)
+router.patch('/apisirs/rlsatutitikdua/:id', verifyCsrfToken, verifyToken, updateDatarlSatuTitikDua)
 
 // RL 1.3
-router.post('/apisirs/rlsatutitiktiga', verifyToken, insertDataRLSatuTitikTiga)
+router.post('/apisirs/rlsatutitiktiga', verifyCsrfToken, verifyToken, insertDataRLSatuTitikTiga)
 router.get('/apisirs/rlsatutitiktiga', verifyToken, getDataRLSatuTitikTiga)
 router.get('/apisirs/rlsatutitiktigadetail/:id', verifyToken, getDataRLSatuTitikTigaDetailById)
-router.patch('/apisirs/rlsatutitiktiga/:id', verifyToken, updateDataRLSatuTitikTiga)
-router.delete('/apisirs/rlsatutitiktiga/:id', verifyToken, deleteDataRLSatuTitikTiga)
+router.patch('/apisirs/rlsatutitiktiga/:id', verifyCsrfToken, verifyToken, updateDataRLSatuTitikTiga)
+router.delete('/apisirs/rlsatutitiktiga/:id', verifyCsrfToken, verifyToken, deleteDataRLSatuTitikTiga)
 
 // RL 3.1
-router.post('/apisirs/rltigatitiksatu', verifyToken, insertDataRLTigaTitikSatu)
+router.post('/apisirs/rltigatitiksatu', verifyCsrfToken, verifyToken, insertDataRLTigaTitikSatu)
 router.get('/apisirs/rltigatitiksatu', verifyToken, getDataRLTigaTitikSatu)
 router.get('/apisirs/rltigatitiksatudetail/:id', verifyToken, getDataRLTigaTitikSatuDetailById)
-router.patch('/apisirs/rltigatitiksatu/:id', verifyToken, updateDataRLTigaTitikSatu)
-router.delete('/apisirs/rltigatitiksatu/:id', verifyToken, deleteDataRLTigaTitikSatu)
+router.patch('/apisirs/rltigatitiksatu/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikSatu)
+router.delete('/apisirs/rltigatitiksatu/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikSatu)
 
 // RL 3.2
-router.post('/apisirs/rltigatitikdua', verifyToken, insertDataRLTigaTitikDua)
+router.post('/apisirs/rltigatitikdua', verifyCsrfToken, verifyToken, insertDataRLTigaTitikDua)
 router.get('/apisirs/rltigatitikdua', verifyToken, getDataRLTigaTitikDua)
-router.delete('/apisirs/rltigatitikdua/:id', verifyToken, deleteDataRLTigaTitikDua)
+router.delete('/apisirs/rltigatitikdua/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikDua)
 router.get('/apisirs/rltigatitikduadetail/:id', verifyToken, getDataRLTigaTitikDuaDetail)
-router.patch('/apisirs/rltigatitikduadetail/:id', verifyToken, updateDataRLTigaTitikDua)
+router.patch('/apisirs/rltigatitikduadetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikDua)
 
 // RL 3.3
-router.post('/apisirs/rltigatitiktiga', verifyToken, insertDataRLTigaTitikTiga)
+router.post('/apisirs/rltigatitiktiga', verifyCsrfToken, verifyToken, insertDataRLTigaTitikTiga)
 router.get('/apisirs/rltigatitiktiga', verifyToken, getDataRLTigaTitikTiga)
-router.delete('/apisirs/rltigatitiktigadetail/:id', verifyToken, deleteDataRLTigaTitikTiga)
+router.delete('/apisirs/rltigatitiktigadetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikTiga)
 router.get('/apisirs/rltigatitiktigadetail',verifyToken, getDataRLTigaTitikTigaDetail)
 router.get('/apisirs/rltigatitiktigadetail/:id',verifyToken, getRLTigaTitikTigaById)
-router.patch('/apisirs/rltigatitiktigadetail/:id',verifyToken, updateDataRLTigaTitikTiga)
+router.patch('/apisirs/rltigatitiktigadetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikTiga)
 
 // RL 3.4
-router.post('/apisirs/rltigatitikempat', verifyToken, insertDataRLTigaTitikEmpat)
+router.post('/apisirs/rltigatitikempat', verifyCsrfToken, verifyToken, insertDataRLTigaTitikEmpat)
 router.get('/apisirs/rltigatitikempat', verifyToken, getDataRLTigaTitikEmpat)
 router.get('/apisirs/rltigatitikempatdetail/:id',verifyToken, getRLTigaTitikEmpatById)
-router.delete('/apisirs/rltigatitikempat/:id', verifyToken, deleteDataRLTigaTitikEmpat)
-router.patch('/apisirs/rltigatitikempatdetail/:id', verifyToken, updateDataRLTigaTitikEmpat)
+router.delete('/apisirs/rltigatitikempat/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikEmpat)
+router.patch('/apisirs/rltigatitikempatdetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikEmpat)
 
 // RL 3.5
-router.post('/apisirs/rltigatitiklima', verifyToken, insertDataRLTigaTitikLima)
+router.post('/apisirs/rltigatitiklima', verifyCsrfToken, verifyToken, insertDataRLTigaTitikLima)
 router.get('/apisirs/rltigatitiklima', verifyToken, getDataRLTigaTitikLima)
 router.get('/apisirs/rltigatitiklimadetail/:id',verifyToken, getRLTigaTitikLimaById)
-router.delete('/apisirs/rltigatitiklima/:id', verifyToken, deleteDataRLTigaTitikLima)
-router.patch('/apisirs/rltigatitiklimadetail/:id',verifyToken, updateDataRLTigaTitikLima)
+router.delete('/apisirs/rltigatitiklima/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikLima)
+router.patch('/apisirs/rltigatitiklimadetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikLima)
 
 // RL 3.6
-router.post('/apisirs/rltigatitikenam', verifyToken, insertDataRLTigaTitikEnam)
+router.post('/apisirs/rltigatitikenam', verifyCsrfToken, verifyToken, insertDataRLTigaTitikEnam)
 router.get('/apisirs/rltigatitikenam', verifyToken, getDataRLTigaTitikEnamIdTahun)
 router.get('/apisirs/rltigatitikenam/update/:id', verifyToken, getDataRLTigaTitikEnamId)
-router.patch('/apisirs/rltigatitikenam/:id', verifyToken, updateDataRLTigaTitikEnamId)
-router.delete('/apisirs/rltigatitikenam/:id', verifyToken, deleteDataRLTigaTitikEnamId)
+router.patch('/apisirs/rltigatitikenam/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikEnamId)
+router.delete('/apisirs/rltigatitikenam/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikEnamId)
 
 // RL 3.7
-router.post('/apisirs/rltigatitiktujuh', verifyToken, insertDataRLTigaTitikTujuh)
+router.post('/apisirs/rltigatitiktujuh', verifyCsrfToken, verifyToken, insertDataRLTigaTitikTujuh)
 router.get('/apisirs/rltigatitiktujuh', verifyToken, getDataRLTigaTitikTujuh)
 router.get('/apisirs/rltigatitiktujuhdetail',verifyToken, getDataRLTigaTitikTujuhDetail)
 router.get('/apisirs/rltigatitiktujuhdetail/:id',verifyToken, getRLTigaTitikTujuhById)
-router.patch('/apisirs/rltigatitiktujuhdetail/:id',verifyToken, updateDataRLTigaTitikTujuh)
-router.delete('/apisirs/rltigatitiktujuhdetail/:id', verifyToken, deleteDataRLTigaTitikTujuh)
+router.patch('/apisirs/rltigatitiktujuhdetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikTujuh)
+router.delete('/apisirs/rltigatitiktujuhdetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikTujuh)
 
 // RL 3.8
 router.post(
     "/apisirs/rltigatitikdelapan",
+    verifyCsrfToken,
     verifyToken,
     insertDataRLTigaTitikDelapan
 );
@@ -291,153 +292,157 @@ router.get(
 );
 router.delete(
     "/apisirs/rltigatitikdelapan/:id",
+    verifyCsrfToken,
     verifyToken,
     deleteDataRLTigaTitikDelapan
 );
 router.patch(
     "/apisirs/rltigatitikdelapan/:id",
+    verifyCsrfToken,
     verifyToken,
     updateDataRLTigaTitikDelapan
 );
 
 // RL 3.9
-router.post('/apisirs/rltigatitiksembilan', verifyToken, insertDataRLTigaTitikSembilan)
+router.post('/apisirs/rltigatitiksembilan', verifyCsrfToken, verifyToken, insertDataRLTigaTitikSembilan)
 // router.get('/apisirs/rltigatitiksembilan', getDataRLTigaTitikSembilan)
 router.get('/apisirs/rltigatitiksembilan', verifyToken, getDataRLTigaTitikSembilanIdTahun)
 router.get('/apisirs/rltigatitiksembilan/update/:id', verifyToken, getDataRLTigaTitikSembilanId)
-router.patch('/apisirs/rltigatitiksembilan/:id', verifyToken, updateDataRLTigaTitikSembilanId)
-router.delete('/apisirs/rltigatitiksembilan/:id', verifyToken, deleteDataRLTigaTitikSembilanId)
+router.patch('/apisirs/rltigatitiksembilan/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikSembilanId)
+router.delete('/apisirs/rltigatitiksembilan/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikSembilanId)
 
 // RL 3.10
-router.post('/apisirs/rltigatitiksepuluh', verifyToken, insertDataRLTigaTitikSepuluh)
+router.post('/apisirs/rltigatitiksepuluh', verifyCsrfToken, verifyToken, insertDataRLTigaTitikSepuluh)
 router.get('/apisirs/rltigatitiksepuluh', verifyToken, getDatarlTigaTitikSepuluh)
 router.get('/apisirs/rltigatitiksepuluhdetail',verifyToken, getDatarlTigaTitikSepuluhDetail)
 router.get('/apisirs/rltigatitiksepuluhdetail/:id',verifyToken, getrlTigaTitikSepuluhById)
-router.patch('/apisirs/rltigatitiksepuluhdetail/:id',verifyToken, updateDatarlTigaTitikSepuluh)
-router.delete('/apisirs/rltigatitiksepuluhdetail/:id', verifyToken, deleteDataRLTigaTitikSepuluh)
+router.patch('/apisirs/rltigatitiksepuluhdetail/:id', verifyCsrfToken, verifyToken, updateDatarlTigaTitikSepuluh)
+router.delete('/apisirs/rltigatitiksepuluhdetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikSepuluh)
 
 //Rl 3.11
-router.post('/apisirs/rltigatitiksebelas', verifyToken, insertDataRLTigaTitikSebelas)
+router.post('/apisirs/rltigatitiksebelas', verifyCsrfToken, verifyToken, insertDataRLTigaTitikSebelas)
 router.get('/apisirs/rltigatitiksebelas', verifyToken, getDatarlTigaTitikSebelas)
 router.get('/apisirs/rltigatitiksebelasdetail',verifyToken, getDatarlTigaTitikSebelasDetail)
 router.get('/apisirs/rltigatitiksebelasdetail/:id',verifyToken, getrlTigaTitikSebelasById)
-router.patch('/apisirs/rltigatitiksebelasdetail/:id',verifyToken, updateDatarlTigaTitikSebelas)
-router.delete('/apisirs/rltigatitiksebelasdetail/:id', verifyToken, deleteDataRLTigaTitikSebelas)
+router.patch('/apisirs/rltigatitiksebelasdetail/:id', verifyCsrfToken, verifyToken, updateDatarlTigaTitikSebelas)
+router.delete('/apisirs/rltigatitiksebelasdetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikSebelas)
 
 // RL 3.12
-router.post('/apisirs/rltigatitikduabelas', verifyToken, insertDataRLTigaTitikDuaBelas)
+router.post('/apisirs/rltigatitikduabelas', verifyCsrfToken, verifyToken, insertDataRLTigaTitikDuaBelas)
 router.get('/apisirs/rltigatitikduabelas', verifyToken, getDataRLTigaTitikDuaBelas)
 router.get('/apisirs/rltigatitikduabelasdetail',verifyToken, getDataRLTigaTitikDuaBelasDetail)
 router.get('/apisirs/rltigatitikduabelasdetail/:id',verifyToken, getRLTigaTitikDuaBelasById)
-router.patch('/apisirs/rltigatitikduabelasdetail/:id',verifyToken, updateDataRLTigaTitikDuaBelas);
-router.delete('/apisirs/rltigatitikduabelasdetail/:id', verifyToken, deleteDataRLTigaTitikDuaBelas);
+router.patch('/apisirs/rltigatitikduabelasdetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikDuaBelas);
+router.delete('/apisirs/rltigatitikduabelasdetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikDuaBelas);
 router.get('/apisirs/getmetoda', verifyToken, getMetoda)
 
 // RL 3.13a
-router.post('/apisirs/rltigatitiktigabelasa', verifyToken, insertDataRLTigaTitikTigaBelasA)
+router.post('/apisirs/rltigatitiktigabelasa', verifyCsrfToken, verifyToken, insertDataRLTigaTitikTigaBelasA)
 router.get('/apisirs/rltigatitiktigabelasa', verifyToken, getDataRLTigaTitikTigaBelasA)
 router.get('/apisirs/rltigatitiktigabelasadetail',verifyToken, getDataRLTigaTitikTigaBelasADetail)
 router.get('/apisirs/rltigatitiktigabelasadetail/:id',verifyToken, getRLTigaTitikTigaBelasAById)
-router.patch('/apisirs/rltigatitiktigabelasadetail/:id',verifyToken, updateDataRLTigaTitikTigaBelasA);
-router.delete('/apisirs/rltigatitiktigabelasadetail/:id', verifyToken, deleteDataRLTigaTitikTigaBelasA);
+router.patch('/apisirs/rltigatitiktigabelasadetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikTigaBelasA);
+router.delete('/apisirs/rltigatitiktigabelasadetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikTigaBelasA);
 router.get('/apisirs/getgolonganobat', verifyToken, getGolonganObat)
 
 // RL 3.13b
-router.post('/apisirs/rltigatitiktigabelasb', verifyToken, insertDataRLTigaTitikTigaBelasB)
+router.post('/apisirs/rltigatitiktigabelasb', verifyCsrfToken, verifyToken, insertDataRLTigaTitikTigaBelasB)
 router.get('/apisirs/rltigatitiktigabelasb', verifyToken, getDataRLTigaTitikTigaBelasB)
 router.get('/apisirs/rltigatitiktigabelasbdetail',verifyToken, getDataRLTigaTitikTigaBelasBDetail)
 router.get('/apisirs/rltigatitiktigabelasbdetail/:id',verifyToken, getRLTigaTitikTigaBelasBById)
-router.patch('/apisirs/rltigatitiktigabelasbdetail/:id',verifyToken, updateDataRLTigaTitikTigaBelasB);
-router.delete('/apisirs/rltigatitiktigabelasbdetail/:id', verifyToken, deleteDataRLTigaTitikTigaBelasB);
+router.patch('/apisirs/rltigatitiktigabelasbdetail/:id',verifyCsrfToken, verifyToken, updateDataRLTigaTitikTigaBelasB);
+router.delete('/apisirs/rltigatitiktigabelasbdetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikTigaBelasB);
 router.get('/apisirs/getgolonganobat', verifyToken, getGolonganObat)
 
 // RL 3.14
-router.post('/apisirs/rltigatitikempatbelas', verifyToken, insertDataRLTigaTitikEmpatBelas)
+router.post('/apisirs/rltigatitikempatbelas', verifyCsrfToken, verifyToken, insertDataRLTigaTitikEmpatBelas)
 router.get('/apisirs/rltigatitikempatbelas', verifyToken, getDataRLTigaTitikEmpatBelas)
-router.delete('/apisirs/rltigatitikempatbelasdetail/:id', verifyToken, deleteDataRLTigaTitikEmpatBelas)
+router.delete('/apisirs/rltigatitikempatbelasdetail/:id', verifyCsrfToken, verifyToken, deleteDataRLTigaTitikEmpatBelas)
 router.get('/apisirs/rltigatitikempatbelasdetail/:id',verifyToken, getDataRLTigaTitikEmpatBelasDetail)
 router.get('/apisirs/rltigatitikempatbelasdetail/:id',verifyToken, getRLTigaTitikEmpatBelasById)
-router.patch('/apisirs/rltigatitikempatbelasdetail/:id',verifyToken, updateDataRLTigaTitikEmpatBelas)
+router.patch('/apisirs/rltigatitikempatbelasdetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikEmpatBelas)
 
 // RL 3.15
-router.post('/apisirs/rltigatitiklimabelas', verifyToken, insertDataRLTigaTitikLimaBelas)
+router.post('/apisirs/rltigatitiklimabelas', verifyCsrfToken, verifyToken, insertDataRLTigaTitikLimaBelas)
 router.get('/apisirs/rltigatitiklimabelas', verifyToken, getDataRLTigaTitikLimaBelas)
-router.delete('/apisirs/rltigatitiklimabelasdetail/:id', deleteDataRLTigaTitikLimaBelas)
+router.delete('/apisirs/rltigatitiklimabelasdetail/:id', verifyCsrfToken, deleteDataRLTigaTitikLimaBelas)
 router.get('/apisirs/rltigatitiklimabelasdetail/:id',verifyToken, getDataRLTigaTitikLimaBelasDetail)
 router.get('/apisirs/rltigatitiklimabelasdetail/:id',verifyToken, getRLTigaTitikLimaBelasById)
-router.patch('/apisirs/rltigatitiklimabelasdetail/:id',verifyToken, updateDataRLTigaTitikLimaBelas)
+router.patch('/apisirs/rltigatitiklimabelasdetail/:id', verifyCsrfToken, verifyToken, updateDataRLTigaTitikLimaBelas)
 
 // RL 4a
-router.post("/apisirs/rlempata", verifyToken, insertDataRLEmpatA);
+router.post("/apisirs/rlempata", verifyCsrfToken, verifyToken, insertDataRLEmpatA);
 router.get("/apisirs/rlempata", verifyToken, getDataRLEmpatA);
-router.delete("/apisirs/rlempata/:id", verifyToken, deleteDataRLEmpatA);
+router.delete("/apisirs/rlempata/:id", verifyCsrfToken, verifyToken, deleteDataRLEmpatA);
 router.get("/apisirs/rlempata/:id", verifyToken, getDataRLEmpatAById);
-router.patch("/apisirs/rlempata/:id", verifyToken, updateDataRLEmpatA);
+router.patch("/apisirs/rlempata/:id", verifyCsrfToken, verifyToken, updateDataRLEmpatA);
 
 // RL 4aSebab
-router.post("/apisirs/rlempatasebab", verifyToken, insertDataRLEmpatASebab);
+router.post("/apisirs/rlempatasebab", verifyCsrfToken, verifyToken, insertDataRLEmpatASebab);
 router.get("/apisirs/rlempatasebab", verifyToken, getDataRLEmpatASebab);
 router.delete(
     "/apisirs/rlempatasebab/:id",
+    verifyCsrfToken,
     verifyToken,
     deleteDataRLEmpatASebab
 );
 router.get("/apisirs/rlempatasebab/:id", verifyToken, getDataRLEmpatASebabById);
 router.patch(
     "/apisirs/rlempatasebab/:id",
+    verifyCsrfToken,
     verifyToken,
     updateDataRLEmpatASebab
 );
 
 // RL 4b
-router.post('/apisirs/rlempatb', verifyToken, insertDataRLEmpatB)
+router.post('/apisirs/rlempatb', verifyCsrfToken, verifyToken, insertDataRLEmpatB)
 router.get('/apisirs/rlempatb', verifyToken, getDataRLEmpatB)
-router.delete('/apisirs/rlempatb/:id', verifyToken, deleteDataRLEmpatBId)
+router.delete('/apisirs/rlempatb/:id', verifyCsrfToken, verifyToken, deleteDataRLEmpatBId)
 router.get('/apisirs/rlempatb/penyakit', verifyToken, getDataJenisGolonganPenyakitB)
 router.get('/apisirs/rlempatb/idpenyakit', verifyToken, getDataJenisGolonganPenyakitBId)
 router.get('/apisirs/rlempatb/update/:id', verifyToken, getDataRLEmpatBId)
-router.patch('/apisirs/rlempatb/:id', verifyToken, updateDataRLEmpatId)
+router.patch('/apisirs/rlempatb/:id', verifyCsrfToken, verifyToken, updateDataRLEmpatId)
 
 // RL 4b sebab
-router.post('/apisirs/rlempatbsebab', verifyToken, insertDataRLEmpatBSebab)
+router.post('/apisirs/rlempatbsebab', verifyCsrfToken, verifyToken, insertDataRLEmpatBSebab)
 router.get('/apisirs/rlempatbsebab', verifyToken, getDataRLEmpatBSebab)
 router.get('/apisirs/rlempatbsebab/penyakit', verifyToken, getDataJenisGolonganSebabPenyakitB)
 router.get('/apisirs/rlempatbsebab/idpenyakit', verifyToken, getDataJenisGolonganSebabPenyakitBId)
-router.delete('/apisirs/rlempatbsebab/:id', verifyToken, deleteDataRLEmpatBSebabId)
+router.delete('/apisirs/rlempatbsebab/:id', verifyCsrfToken, verifyToken, deleteDataRLEmpatBSebabId)
 router.get('/apisirs/rlempatbsebab/update/:id', verifyToken, getDataRLEmpatBSebabId)
-router.patch('/apisirs/rlempatbsebab/:id', verifyToken, updateDataRLEmpatSebabId)
+router.patch('/apisirs/rlempatbsebab/:id', verifyCsrfToken, verifyToken, updateDataRLEmpatSebabId)
 
 // RL 5.1
-router.post('/apisirs/rllimatitiksatu', verifyToken, insertDataRLLimaTitikSatu)
+router.post('/apisirs/rllimatitiksatu', verifyCsrfToken, verifyToken, insertDataRLLimaTitikSatu)
 router.get('/apisirs/rllimatitiksatu', verifyToken, getDataRLLimaTitikSatu)
 router.get('/apisirs/rllimatitiksatudetail/:id',verifyToken, getRLLimaTitikSatuById)
-router.delete('/apisirs/rllimatitiksatu/:id', verifyToken, deleteDataRLLimaTitikSatu)
-router.patch('/apisirs/rllimatitiksatudetail/:id', verifyToken, updateDataRLLimaTitikSatu)
+router.delete('/apisirs/rllimatitiksatu/:id', verifyCsrfToken, verifyToken, deleteDataRLLimaTitikSatu)
+router.patch('/apisirs/rllimatitiksatudetail/:id', verifyCsrfToken, verifyToken, updateDataRLLimaTitikSatu)
 
 // RL 5.2
-router.post('/apisirs/rllimatitikdua', verifyToken, insertDataRLLimaTitikDua)
+router.post('/apisirs/rllimatitikdua', verifyCsrfToken, verifyToken, insertDataRLLimaTitikDua)
 router.get('/apisirs/rllimatitikdua', verifyToken, getDataRLLimaTitikDua)
 router.get('/apisirs/rllimatitikduadetail/:id',verifyToken, getRLLimaTitikDuaById)
-router.delete('/apisirs/rllimatitikdua/:id', verifyToken, deleteDataRLLimaTitikDua)
-router.patch('/apisirs/rllimatitikduadetail/:id', verifyToken, updateDataRLLimaTitikDua)
+router.delete('/apisirs/rllimatitikdua/:id', verifyCsrfToken, verifyToken, deleteDataRLLimaTitikDua)
+router.patch('/apisirs/rllimatitikduadetail/:id', verifyCsrfToken, verifyToken, updateDataRLLimaTitikDua)
 
 // RL 5.3
-router.post('/apisirs/rllimatitiktiga', verifyToken, insertDataRLLimaTitikTiga)
+router.post('/apisirs/rllimatitiktiga', verifyCsrfToken, verifyToken, insertDataRLLimaTitikTiga)
 router.get('/apisirs/rllimatitiktiga', verifyToken, getDataRLLimaTitikTiga)
 router.get('/apisirs/rllimatitiktigadetail',verifyToken, getDataRLLimaTitikTigaDetail)
 router.get('/apisirs/rllimatitiktigadetail/:id',verifyToken, getRLLimaTitikTigaById)
-router.patch('/apisirs/rllimatitiktigadetail/:id',verifyToken, updateDataRLLimaTitikTiga);
-router.delete('/apisirs/rllimatitiktigadetail/:id', deleteDataRLLimaTitikTiga);
+router.patch('/apisirs/rllimatitiktigadetail/:id', verifyCsrfToken, verifyToken, updateDataRLLimaTitikTiga);
+router.delete('/apisirs/rllimatitiktigadetail/:id', verifyCsrfToken, deleteDataRLLimaTitikTiga);
 router.get('/apisirs/getnourut', verifyToken, getNoUrut)
 router.get('/apisirs/geticd10', verifyToken, getIcd10)
 
 // RL 5.4
-router.post('/apisirs/rllimatitikempat', verifyToken, insertDataRLLimaTitikEmpat)
+router.post('/apisirs/rllimatitikempat', verifyCsrfToken, verifyToken, insertDataRLLimaTitikEmpat)
 router.get('/apisirs/rllimatitikempat', verifyToken, getDataRLLimaTitikEmpat)
 router.get('/apisirs/rllimatitikempatdetail',verifyToken, getDataRLLimaTitikEmpatDetail)
 router.get('/apisirs/rllimatitikempatdetail/:id',verifyToken, getRLLimaTitikEmpatById)
-router.patch('/apisirs/rllimatitikempatdetail/:id',verifyToken, updateDataRLLimaTitikEmpat);
-router.delete('/apisirs/rllimatitikempatdetail/:id', verifyToken, deleteDataRLLimaTitikEmpat);
+router.patch('/apisirs/rllimatitikempatdetail/:id', verifyCsrfToken, verifyToken, updateDataRLLimaTitikEmpat);
+router.delete('/apisirs/rllimatitikempatdetail/:id', verifyCsrfToken, verifyToken, deleteDataRLLimaTitikEmpat);
 router.get('/apisirs/getnourut', verifyToken, getNoUrut)
 router.get('/apisirs/geticd10', verifyToken, getIcd10)
 
@@ -450,7 +455,6 @@ router.get('/apisirs/provinsi', verifyToken, getDataProvinsi)
 // Admin Login
 router.post('/apisirs/loginadmin', loginadmin)
 router.delete('/apisirs/logoutadmin', logoutadmin)
-router.get('/apisirs/token', refreshToken)
 
 // bibo
 router.get('/apisirs/rltigatitikempatadmin', verifyToken, getDataRLTigaTitikEmpatKodeRSTahun)
