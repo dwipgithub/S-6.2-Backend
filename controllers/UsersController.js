@@ -100,7 +100,7 @@ export const login = async (req, res) => {
                         httpOnly: true,
                         sameSite: 'Strict',
                         // maxAge: 24 * 60 * 60 * 1000
-                        maxAge: 1000 * 60 * 60 * 24
+                        maxAge: 6 * 60 * 60 * 1000
                     })
 
                     const csrfToken = crypto.randomUUID()
