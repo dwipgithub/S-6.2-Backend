@@ -159,7 +159,7 @@ router.get('/apisirs/kriteriauser', verifyToken, getKriteriaUser)
 
 // Token
 router.post('/apisirs/login', login)
-router.post('/apisirs/logout', verifyCsrfToken, logout)
+router.delete('/apisirs/logout', verifyCsrfToken, logout)
 router.get('/apisirs/token', verifyCsrfToken, refreshToken)
 
 // Jenis Pelayanan
