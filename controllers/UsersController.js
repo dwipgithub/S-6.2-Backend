@@ -79,6 +79,7 @@ export const login = async (req, res) => {
                 })
                 return
             }
+
             const payloadObject = {
                 id: results[0].id,
                 nama: results[0].nama,
@@ -87,9 +88,13 @@ export const login = async (req, res) => {
                 jenisUserId: results[0].jenis_user_id
             }
 
+            const payloadObjectRefreshToken = {
+                id: results[0].id
+            }
+
             const accessToken = jsonWebToken.sign(payloadObject, process.env.ACCESS_TOKEN_SECRET, {expiresIn: process.env.ACCESS_TOKEN_EXPIRESIN})
             jsonWebToken.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, result) => {
-                const refreshToken = jsonWebToken.sign(payloadObject, process.env.REFRESH_TOKEN_SECRET, {expiresIn: process.env.REFRESH_TOKEN_EXPIRESIN})
+                const refreshToken = jsonWebToken.sign(payloadObjectRefreshToken, process.env.REFRESH_TOKEN_SECRET, {expiresIn: process.env.REFRESH_TOKEN_EXPIRESIN})
                 users.update({refresh_token: refreshToken},{
                     where: {
                         id: results[0].id
