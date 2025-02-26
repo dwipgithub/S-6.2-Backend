@@ -4,7 +4,8 @@ import { rumahSakit } from "../models/RumahSakit.js"
 import Joi from 'joi'
 
 export const getDataRLLimaTitikDua = (req, res) => {
-    console.log(req.user)
+    // console.log(req.user)
+    console.log(req.query.tahun)
     rlLimaTitikDuaHeader.findAll({
         attributes: ['id','tahun'],
         where:{
