@@ -104,7 +104,7 @@ export const login = async (req, res) => {
                     res.cookie('refreshToken', refreshToken, {
                         httpOnly: true,
                         sameSite: 'Strict',
-                        // secure: true, 
+                        secure: true, 
                         maxAge: 6 * 60 * 60 * 1000
                     })
 
@@ -465,7 +465,9 @@ export const loginadmin = (req, res) => {
                 .then(() => {
                     res.cookie('refreshToken', refreshToken, {
                         httpOnly: true,
-                        maxAge: 24 * 60 * 60 * 1000
+                        sameSite: 'Strict',
+                        secure: true, 
+                        maxAge: 6 * 60 * 60 * 1000
                     })
                     res.status(201).send({
                         status: true,
