@@ -113,6 +113,7 @@ export const login = async (req, res) => {
                     res.cookie('XSRF-TOKEN', csrfToken, {
                         httpOnly: true,
                         sameSite: 'Strict', // atau 'Lax' tergantung kebutuhan
+                        secure: true
                     });
 
                     res.status(201).send({
@@ -454,9 +455,13 @@ export const loginadmin = (req, res) => {
                 rsId: results[0].rs_id
             }
 
+            const payloadObjectRefreshToken = {
+                id: results[0].id
+            }
+
             const accessToken = jsonWebToken.sign(payloadObject, process.env.ACCESS_TOKEN_SECRET, {expiresIn: process.env.ACCESS_TOKEN_EXPIRESIN})
             jsonWebToken.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, result) => {
-                const refreshToken = jsonWebToken.sign(payloadObject, process.env.REFRESH_TOKEN_SECRET, {expiresIn: process.env.REFRESH_TOKEN_EXPIRESIN})
+                const refreshToken = jsonWebToken.sign(payloadObjectRefreshToken, process.env.REFRESH_TOKEN_SECRET, {expiresIn: process.env.REFRESH_TOKEN_EXPIRESIN})
                 users.update({refresh_token: refreshToken},{
                     where: {
                         id: results[0].id
@@ -469,12 +474,22 @@ export const loginadmin = (req, res) => {
                         secure: true, 
                         maxAge: 6 * 60 * 60 * 1000
                     })
+
+                    const csrfToken = crypto.randomUUID()
+
+                    res.cookie('XSRF-TOKEN', csrfToken, {
+                        httpOnly: true,
+                        sameSite: 'Strict', // atau 'Lax' tergantung kebutuhan
+                        secure: true
+                    });
+
                     res.status(201).send({
                         status: true,
                         message: "access token created",
                         data: {
                             name: results[0].nama,
-                            access_token: accessToken
+                            access_token: accessToken,
+                            csrfToken: csrfToken
                         }
                     })
                 })
