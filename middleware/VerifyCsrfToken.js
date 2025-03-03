@@ -1,6 +1,6 @@
 export const verifyCsrfToken = (req, res, next) => {
     const csrfTokenFromClient = req.headers['xsrf-token']
-    const csrfTokenFromCookie = req.cookies['XSRF-TOKEN']
+    const csrfTokenFromCookie = req.cookies['XSRF-TOKEN-V2']
     const arrayCSRFToken = [csrfTokenFromCookie, '4c7936f-b388-4909-b26c-d07dbafdc7a7']
 
     // console.log(csrfTokenFromClient)

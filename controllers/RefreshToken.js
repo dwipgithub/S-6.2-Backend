@@ -2,7 +2,7 @@ import { users } from "../models/UserModel.js";
 import jsonWebToken from 'jsonwebtoken'
 
 export const refreshToken = (req, res) => {
-    const refreshToken = req.cookies.refreshToken
+    const refreshToken = req.cookies.refreshTokenV2
     if(!refreshToken) {
         res.status(403).json({
             status: false,

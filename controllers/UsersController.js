@@ -101,7 +101,7 @@ export const login = async (req, res) => {
                     }
                 })
                 .then(() => {
-                    res.cookie('refreshToken', refreshToken, {
+                    res.cookie('refreshTokenV2', refreshToken, {
                         httpOnly: true,
                         sameSite: 'Strict',
                         secure: true, 
@@ -110,7 +110,7 @@ export const login = async (req, res) => {
 
                     const csrfToken = crypto.randomUUID()
 
-                    res.cookie('XSRF-TOKEN', csrfToken, {
+                    res.cookie('XSRF-TOKEN-V2', csrfToken, {
                         httpOnly: true,
                         sameSite: 'Strict', // atau 'Lax' tergantung kebutuhan
                         secure: true
@@ -227,7 +227,7 @@ export const login = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-    const refreshToken = req.cookies.refreshToken
+    const refreshToken = req.cookies.refreshTokenV2
     if(!refreshToken) {
         res.status(200).send({
             status: false,
@@ -248,9 +248,9 @@ export const logout = (req, res) => {
             }
         })
         .then((resultsUpdate) => {
-            res.clearCookie('refreshToken')
-            res.clearCookie('XSRF-TOKEN')
-            res.clearCookie('connect.sid')
+            res.clearCookie('refreshTokenV2')
+            res.clearCookie('XSRF-TOKEN-V2')
+            res.clearCookie('connectV2.id')
             res.status(200).send({
                 status: true,
                 message: resultsUpdate
@@ -468,7 +468,7 @@ export const loginadmin = (req, res) => {
                     }
                 })
                 .then(() => {
-                    res.cookie('refreshToken', refreshToken, {
+                    res.cookie('refreshTokenV2', refreshToken, {
                         httpOnly: true,
                         sameSite: 'Strict',
                         secure: true, 
@@ -477,7 +477,7 @@ export const loginadmin = (req, res) => {
 
                     const csrfToken = crypto.randomUUID()
 
-                    res.cookie('XSRF-TOKEN', csrfToken, {
+                    res.cookie('XSRF-TOKEN-V2', csrfToken, {
                         httpOnly: true,
                         sameSite: 'Strict', // atau 'Lax' tergantung kebutuhan
                         secure: true
@@ -513,7 +513,7 @@ export const loginadmin = (req, res) => {
 }
 
 export const logoutadmin = (req, res) => {
-    const refreshToken = req.cookies.refreshToken
+    const refreshToken = req.cookies.refreshTokenV2
     if(!refreshToken) {
         res.status(204).send({
             status: false,
@@ -533,7 +533,9 @@ export const logoutadmin = (req, res) => {
             }
         })
         .then((resultsUpdate) => {
-            res.clearCookie('refreshToken')
+            res.clearCookie('refreshTokenV2')
+            res.clearCookie('XSRF-TOKEN-V2')
+            res.clearCookie('connectV2.id')
             res.sendStatus(200)
         })
     })
