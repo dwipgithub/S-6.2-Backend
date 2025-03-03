@@ -19,7 +19,7 @@ app.use(session({
     secret: 'c7936f-b388-4909-b26c-d07dbafdc7a7', 
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { secure: true },
     name: 'connectV2.id'
 }));
 
