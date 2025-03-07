@@ -24,6 +24,19 @@ import { getDataKabKota, getDataKabKotabyID, getDataProvinsi } from '../controll
 import { getDataValidasiByRsId, insertValidasi, updateValidasi, getStatusValidasi } from '../controllers/ValidasiController.js'
 import { getKriteriaUser } from '../controllers/KriteriaUserController.js'
 
+// Absensi
+import { getAbsensi } from "../controllers/AbsensiController.js";
+
+// Provinsi
+import {
+    getProvinsi,
+    showProvinsi,
+  } from "../controllers/ProvinsiController.js";
+  
+  // KabKota
+  import { getKabKota, showKabKota } from "../controllers/KabKotaBaruController.js";
+  
+
 // RL 1.2
 import { getDatarlSatuTitikDua, insertDataRLSatuTitikDua,updateDatarlSatuTitikDua, 
     getrlSatuTitikDuaById,deleteDataRLSatuTitikDua, getDataRLSatuTitikDuaKodeRSTahun} from '../controllers/RLSatuTitikDuaController.js'
@@ -156,6 +169,11 @@ router.patch('/apisirs/users/:id/admin', verifyCsrfToken, verifyToken, changePas
 
 // Kriteria User
 router.get('/apisirs/kriteriauser', verifyToken, getKriteriaUser)
+
+// Absensi
+router.get("/apisirs/absensi", verifyToken, getAbsensi);
+
+
 
 // Token
 router.post('/apisirs/login', login)
@@ -499,5 +517,13 @@ router.get('/apisirs/validasi', verifyToken, getDataValidasiByRsId)
 router.post('/apisirs/validasi', verifyToken, insertValidasi)
 router.patch('/apisirs/validasi/:id', verifyToken, updateValidasi)
 router.get('/apisirs/statusvalidasi', getStatusValidasi)
+
+// Provinsi
+router.get("/apisirs/provinsibaru", verifyToken, getProvinsi);
+router.get("/apisirs/provinsibaru/:id", verifyToken, showProvinsi);
+
+// KabKota
+router.get("/apisirs/kabkotabaru", verifyToken, getKabKota);
+router.get("/apisirs/kabkotabaru/:id", verifyToken, showKabKota);
 
 export default router

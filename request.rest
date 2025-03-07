@@ -54,6 +54,10 @@ DELETE http://localhost/apisirs/logout
 ### Get Token
 GET http://localhost/apisirs/token
 
+###absensi
+GET http://localhost:5000/apisirs/absensi
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDMzLCJuYW1hIjoiUlMgS2Fua2VyIERoYXJtYWlzIiwiZW1haWwiOiIzMTc0MDYzIiwicnNJZCI6IjMxNzQwNjMiLCJqZW5pc1VzZXJJZCI6NCwiaWF0IjoxNzQxMTg2MjYxLCJleHAiOjE3NDExODYzMjF9.ZAq01Ro2-zqONsU6zI58Whu4c_a4c6LeFptxCVwIErY
+
 ### Reference
 ##################################################
 ### Jenis Kegiatan
