@@ -1,5 +1,5 @@
 import { databaseSIRS } from '../config/Database.js'
-import { rlSatuTitikDuaHeader, rlSatuTitikDuaDetail } from "../models/RLSatuTitikDua.js";
+import { rlSatuTitikDuaHeader, rlSatuTitikDuaDetail, getRLSatuTitikDua } from "../models/RLSatuTitikDua.js";
 import Joi from "joi";
 import { rumahSakit } from "../models/RumahSakit.js";
 
@@ -29,6 +29,53 @@ export const getDatarlSatuTitikDua = (req, res) => {
             return
         })
 }
+
+export const getDatarlSatuTitikDuaForRSOnline = (req, res) => {
+    const userName = req.headers['username']
+    const password = req.headers['password']
+
+    if (userName != 'putrilittleholiday' || password != '947u4Ina') {
+        console.log(userName)
+        res.status(403).send({
+            status: false,
+            message: 'Forbidden'
+        })
+        return
+    }
+
+    const schema = Joi.object({
+        rsId: Joi.number().required(),
+        tahun: Joi.number().required()
+    })
+
+    const { error, value } = schema.validate(req.query)
+    if (error) {
+        res.status(404).send({
+            status: false,
+            message: error.details[0].message
+        })
+        return
+    }
+    
+    getRLSatuTitikDua(req, (err, results) => {
+        const message = results.length ? 'data found' : 'data not found'
+        if (results.length) {
+            res.status(200).send({
+                status: true,
+                message: message,
+                data: results[0]
+            })
+        } else {
+            res.status(404).send({
+                status: false,
+                message: message,
+                data: null
+            })
+        }
+        
+    })
+}
+
 export const getDatarlSatuTitikDuaDetail = (req, res) => {
     rlSatuTitikDuaDetail.findAll({
         attributes: [

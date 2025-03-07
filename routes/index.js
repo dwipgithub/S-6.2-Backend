@@ -39,7 +39,7 @@ import {
 
 // RL 1.2
 import { getDatarlSatuTitikDua, insertDataRLSatuTitikDua,updateDatarlSatuTitikDua, 
-    getrlSatuTitikDuaById,deleteDataRLSatuTitikDua, getDataRLSatuTitikDuaKodeRSTahun} from '../controllers/RLSatuTitikDuaController.js'
+    getrlSatuTitikDuaById,deleteDataRLSatuTitikDua, getDataRLSatuTitikDuaKodeRSTahun, getDatarlSatuTitikDuaForRSOnline} from '../controllers/RLSatuTitikDuaController.js'
 
 // RL 1.3
 import { getDataRLSatuTitikTiga, getDataRLSatuTitikTigaDetailById,
@@ -232,6 +232,7 @@ router.get('/apisirs/rlsatutitikdua', verifyToken, getDatarlSatuTitikDua)
 router.get('/apisirs/rlsatutitikduadetail/:id',verifyToken,getrlSatuTitikDuaById )
 router.delete("/apisirs/rlsatutitikdua/:id", verifyCsrfToken, verifyToken, deleteDataRLSatuTitikDua)
 router.patch('/apisirs/rlsatutitikdua/:id', verifyCsrfToken, verifyToken, updateDatarlSatuTitikDua)
+router.get('/apisirs/rlsatutitikduaforrsonline', getDatarlSatuTitikDuaForRSOnline )
 
 // RL 1.3
 router.post('/apisirs/rlsatutitiktiga', verifyCsrfToken, verifyToken, insertDataRLSatuTitikTiga)
